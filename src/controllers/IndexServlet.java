@@ -1,4 +1,4 @@
-package kadai_controllers;
+package controllers;
 
 import java.io.IOException;
 import java.util.List;
