@@ -35,8 +35,8 @@ public class NewServlet extends HttpServlet {
         request.setAttribute("_token", request.getSession().getId());
 
         // おまじないとしてのインスタンスを生成
-        request.setAttribute("message", new Model());
+        request.setAttribute("tasukul", new Model());
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/new.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasukum/new.jsp");
         rd.forward(request, response);
      }}

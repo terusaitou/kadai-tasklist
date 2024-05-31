@@ -41,19 +41,19 @@ public class IndexServlet extends HttpServlet implements Servlet {
         } catch(NumberFormatException e) {}
 
 
-        List<Model> kadai_tasukukanri = em.createNamedQuery("getAllMessages", Model.class)
+        List<Model> kadai_tasukukanri = em.createNamedQuery("getAlltasuku", Model.class)
                 .setFirstResult(15 * (page - 1))
                 .setMaxResults(15)
                 .getResultList();
 
 // 全件数を取得
-long messages_count = (long)em.createNamedQuery("getMessagesCount", Long.class)
+long tasuku_count = (long)em.createNamedQuery("gettasukuCount", Long.class)
                    .getSingleResult();
 
 em.close();
 
         request.setAttribute("Model", kadai_tasukukanri);
-        request.setAttribute("Model_count", messages_count);     // 全件数
+        request.setAttribute("Model_count", tasuku_count);     // 全件数
         request.setAttribute("page", page);                         // ページ数
         // フラッシュメッセージがセッションスコープにセットされていたら
         // リクエストスコープに保存する（セッションスコープからは削除）
@@ -62,7 +62,7 @@ em.close();
             request.getSession().removeAttribute("flush");
         }
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasukum/index.jsp");
         rd.forward(request, response);
     }
 }

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.Model;
-import models.validators.MessageValidator;
+import models.validators.TasukuValidator;
 import utils.DBUtil;
 
 /**
@@ -40,7 +40,7 @@ public class UpdateServlet extends HttpServlet {
 
             // セッションスコープからメッセージのIDを取得して
             // 該当のIDのメッセージ1件のみをデータベースから取得
-            Model m = em.find(Model.class, (Integer)(request.getSession().getAttribute("message_id")));
+            Model m = em.find(Model.class, (Integer)(request.getSession().getAttribute("tasuku_id")));
 
             // フォームの内容を各フィールドに上書き
             String title = request.getParameter("title");
@@ -54,16 +54,16 @@ public class UpdateServlet extends HttpServlet {
 
 
             // バリデーションを実行してエラーがあったら編集画面のフォームに戻る
-            List<String> errors = MessageValidator.validate(m);
+            List<String> errors = TasukuValidator.validate(m);
             if(errors.size() > 0) {
                 em.close();
 
                 // フォームに初期値を設定、さらにエラーメッセージを送る
                 request.setAttribute("_token", request.getSession().getId());
-                request.setAttribute("message", m);
+                request.setAttribute("tasukul", m);
                 request.setAttribute("errors", errors);
 
-                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/edit.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasukukanri1/edit.jsp");
                 rd.forward(request, response);
             } else {
                 // データベースを更新

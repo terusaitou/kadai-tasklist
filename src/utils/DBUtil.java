@@ -9,7 +9,7 @@ public class DBUtil {
     private static EntityManagerFactory emf;
 
     public static EntityManager createEntityManager() {
-        return getEntityManagerFactory().createEntityManager();
+        return (EntityManager) getEntityManagerFactory().createEntityManager();
     }
 
     private static EntityManagerFactory getEntityManagerFactory() {
@@ -18,5 +18,10 @@ public class DBUtil {
         }
 
         return emf;
+    }
+
+    public static EntityManager createEntityManager1() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
     }
 }

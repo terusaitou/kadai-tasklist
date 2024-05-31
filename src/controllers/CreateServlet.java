@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.Model;
-import models.validators.MessageValidator;
+import models.validators.TasukuValidator;
 import utils.DBUtil;
 
 /**
@@ -52,16 +52,16 @@ public class CreateServlet extends HttpServlet {
             m.setUpdated_at(currentTime);
 
 
-            List<String> errors = MessageValidator.validate(m);
+            List<String> errors = TasukuValidator.validate(m);
             if(errors.size() > 0) {
                 em.close();
 
                 // フォームに初期値を設定、さらにエラーメッセージを送る
                 request.setAttribute("_token", request.getSession().getId());
-                request.setAttribute("message", m);
+                request.setAttribute("tasukul", m);
                 request.setAttribute("errors", errors);
 
-                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/new.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasukum/new.jsp");
                 rd.forward(request, response);
             } else {
                 // データベースに保存
@@ -73,11 +73,6 @@ public class CreateServlet extends HttpServlet {
                 // indexのページにリダイレクト
                 response.sendRedirect(request.getContextPath() + "/index");
             }
-            em.persist(m);
-            em.getTransaction().commit();
-            em.close();
-
-            response.sendRedirect(request.getContextPath() + "/index");
 
 
     }

@@ -13,11 +13,11 @@
 
 
 <label for="title">タスク</label><br />
-<input type="text" name="title" id="title" value="${message.title}" />
+<input type="text" name="title" id="title" value="${tasuku.title}" />
 <br /><br />
 
 <label for="content_msg">内容</label><br />
-<input type="text" name="content" id="content_msg" value="${message.content}" />
+<input type="text" name="content" id="content_msg" value="${tasuku.content}" />
 <br /><br />
 
 <input type="hidden" name="_token" value="${_token}" />

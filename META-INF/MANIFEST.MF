@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: kadai_tasukukanri
-Bundle-SymbolicName: tasklist
+Bundle-SymbolicName: tasklist00
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: kadai.tasukukanri

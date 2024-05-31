@@ -5,7 +5,7 @@ import java.util.List;
 
 import models.Model;
 
-public class MessageValidator {
+public class TasukuValidator {
     // バリデーションを実行する
     public static List<String> validate(Model m) {
         List<String> errors = new ArrayList<String>();
