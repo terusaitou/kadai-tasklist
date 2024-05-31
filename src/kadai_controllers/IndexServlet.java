@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Model;
+import models.TS;
 import utils.DBUtil;
 /**
  * Servlet implementation class IndexServlet
@@ -41,7 +41,7 @@ public class IndexServlet extends HttpServlet implements Servlet {
         } catch(NumberFormatException e) {}
 
 
-        List<Model> kadai_tasukukanri = em.createNamedQuery("getAlltasuku", Model.class)
+        List<TS> kadai_tasukukanri = em.createNamedQuery("getAlltasuku", TS.class)
                 .setFirstResult(15 * (page - 1))
                 .setMaxResults(15)
                 .getResultList();

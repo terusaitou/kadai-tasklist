@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Model;
+import models.TS;
 import utils.DBUtil;
 
 /**
@@ -36,7 +36,7 @@ public class DestroyServlet extends HttpServlet {
 
             // セッションスコープからメッセージのIDを取得して
             // 該当のIDのメッセージ1件のみをデータベースから取得
-            Model m = em.find(Model.class, (Integer)(request.getSession().getAttribute("tasuku_id")));
+            TS m = em.find(TS.class, (Integer)(request.getSession().getAttribute("tasuku_id")));
 
             em.getTransaction().begin();
             em.remove(m);       // データ削除

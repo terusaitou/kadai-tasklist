@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Model;
+import models.TS;
 import models.validators.TasukuValidator;
 import utils.DBUtil;
 
@@ -40,7 +40,7 @@ public class UpdateServlet extends HttpServlet {
 
             // セッションスコープからメッセージのIDを取得して
             // 該当のIDのメッセージ1件のみをデータベースから取得
-            Model m = em.find(Model.class, (Integer)(request.getSession().getAttribute("tasuku_id")));
+            TS m = em.find(TS.class, (Integer)(request.getSession().getAttribute("tasuku_id")));
 
             // フォームの内容を各フィールドに上書き
             String title = request.getParameter("title");

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Model;
+import models.TS;
 
 
 /**
@@ -35,7 +35,7 @@ public class NewServlet extends HttpServlet {
         request.setAttribute("_token", request.getSession().getId());
 
         // おまじないとしてのインスタンスを生成
-        request.setAttribute("tasukul", new Model());
+        request.setAttribute("tasukul", new TS());
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasukum/new.jsp");
         rd.forward(request, response);

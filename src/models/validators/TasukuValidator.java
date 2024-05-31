@@ -3,11 +3,11 @@ package models.validators;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Model;
+import models.TS;
 
 public class TasukuValidator {
     // バリデーションを実行する
-    public static List<String> validate(Model m) {
+    public static List<String> validate(TS m) {
         List<String> errors = new ArrayList<String>();
 
         String title_error = validateTitle(m.getTitle());

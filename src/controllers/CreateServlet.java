@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Model;
+import models.TS;
 import models.validators.TasukuValidator;
 import utils.DBUtil;
 
@@ -39,7 +39,7 @@ public class CreateServlet extends HttpServlet {
             EntityManager em = DBUtil.createEntityManager();
             em.getTransaction().begin();
 
-            Model m = new Model();
+            TS m = new TS();
 
             String title = request.getParameter("title");
             m.setTitle(title);
